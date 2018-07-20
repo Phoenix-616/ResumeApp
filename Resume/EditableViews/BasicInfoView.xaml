@@ -3,21 +3,28 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Resume.EditableViews"
              mc:Ignorable="d">
+    
+    <UserControl.Resources>
+        <Style TargetType="DatePickerTextBox">
+            <Setter Property="IsReadOnly" Value="True"/>
+        </Style>
+    </UserControl.Resources>
 
-    <StackPanel Orientation="Vertical">
-        <TextBlock Text="Имя:"/>
-        <TextBox Text="{Binding Path=FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="Отчество:"/>
-        <TextBox Text="{Binding Path=MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="Фамилия:"/>
-        <TextBox Text="{Binding Path=LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="Дата рождения:"/>
-        <DatePicker Text="{Binding Path=BirthDay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="Номер телефона"/>
-        <TextBox Text="{Binding Path=Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="Адрес электронной почты"/>
-        <TextBox Text="{Binding Path=Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-    </StackPanel>
+    <GroupBox Header="Основная информация" Margin="5">
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="Имя:"/>
+            <TextBox Text="{Binding Path=FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Отчество:"/>
+            <TextBox Text="{Binding Path=MiddleName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Фамилия:"/>
+            <TextBox Text="{Binding Path=LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Дата рождения:"/>
+            <Calendar SelectedDate="{Binding Path=BirthDay, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Номер телефона"/>
+            <TextBox Text="{Binding Path=Phone, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="Адрес электронной почты"/>
+            <TextBox Text="{Binding Path=Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+    </GroupBox>
 </UserControl>

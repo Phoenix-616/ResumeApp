@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Resume.EditableViews
 {
     /// <summary>
-    /// Interaction logic for TargetPostionViewElement.xaml
+    /// Interaction logic for TargetPositionViewElement.xaml
     /// </summary>
-    public partial class TargetPostionViewElement : UserControl
+    public partial class TargetPositionViewElement : UserControl
     {
-        public TargetPostionViewElement()
+        public TargetPositionViewElement()
         {
             InitializeComponent();
         }

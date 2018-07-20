@@ -8,20 +8,26 @@ using System.Threading.Tasks;
 
 namespace Resume.Models
 {
-    public class TargetPosition : INotifyPropertyChanged
+    public class TargetPosition : INotifyPropertyChanged, IDisposable
     {
+
         public TargetPosition()
         {
         }
 
-        public TargetPosition(string position, List<string> reasons)
+        public TargetPosition(string position, string reasons)
         {
             Position = position;
-            Reasons =  new ObservableCollection<string>(reasons);
+            Reasons = reasons;
         }
 
         public string Position { get; set; }
-        public ObservableCollection<string> Reasons { get; set; }
+        public string Reasons { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
+        public void Dispose()
+        {
+            Position = null;
+            Reasons = null;
+        }
     }
 }

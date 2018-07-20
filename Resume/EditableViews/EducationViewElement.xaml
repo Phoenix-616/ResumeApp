@@ -17,16 +17,20 @@
         </ObjectDataProvider>
     </UserControl.Resources>
 
-    <StackPanel>
+    <StackPanel Margin="2">
         <TextBlock Text="Название учебного заведения:"/>
         <TextBox Text="{Binding Path=UniName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock Text="Факультет:"/>
-        <TextBox Text="{Binding Path=UniName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Text="{Binding Path=Department, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock Text="Степень:"/>
         <ComboBox ItemsSource="{Binding Source={StaticResource DataFromEnum}}" SelectedItem="{Binding Path=Degree, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <StackPanel Orientation="Horizontal">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
             <TextBlock Text="Окончено:"/>
-            <CheckBox IsChecked="{Binding Path=Done, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        </StackPanel>
+            <CheckBox Grid.Column="1" IsChecked="{Binding Path=Done, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center"/>
+        </Grid>
     </StackPanel>
 </UserControl>

@@ -5,18 +5,35 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Resume.EditableViews"
              mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <Style TargetType="DatePickerTextBox">
+            <Setter Property="IsReadOnly" Value="True"/>
+        </Style>
+    </UserControl.Resources>
+
     <StackPanel>
         <TextBlock Text="Компания:"/>
         <TextBox Text="{Binding Path=Firm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="С:"/>
-        <DatePicker Text="{Binding Path=Since, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="По:"/>
-        <DatePicker Text="{Binding Path=Until, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="С:" Grid.Row="0" Grid.Column="0"/>
+            <Calendar Grid.Row="1" Grid.Column="0" SelectedDate="{Binding Path=Since, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Text="По:" Grid.Row="0" Grid.Column="1"/>
+            <Calendar Grid.Row="1" Grid.Column="1" SelectedDate="{Binding Path=Until, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        </Grid>
         <TextBlock Text="Должность:"/>
         <TextBox Text="{Binding Path=Position, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBlock Text="Обязанности:"/>
-        <DataGrid ItemsSource="{Binding Path=Duties, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" CanUserAddRows="True" CanUserDeleteRows="True" HeadersVisibility="None"/>
+        <TextBox Text="{Binding Path=Duties, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" AcceptsReturn="True"/>
         <TextBlock Text="Дополнительная информация:"/>
-        <TextBox Text="{Binding Path=Extra, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Text="{Binding Path=Extra, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" AcceptsReturn="True"/>
     </StackPanel>
 </UserControl>

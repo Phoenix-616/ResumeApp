@@ -3,10 +3,56 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:editableViews="clr-namespace:Resume.EditableViews"
+        xmlns:models="clr-namespace:Resume.Models"
         xmlns:local="clr-namespace:Resume"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        x:Name="Window"
+        Title="ResumeApp">
+
+    <Window.Resources>
+        <Style TargetType="GroupBox">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="Calendar">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="MinWidth" Value="20"/>
+        </Style>
+    </Window.Resources>
+
+    <ScrollViewer>
+        <StackPanel CanVerticallyScroll="True" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Загрузить" Click="LoadButtonClick"/>
+                <Button Content="Сохранить" Click="SaveButtonClick"/>
+                <Button Content="Сгенерировать PDF" Click="GeneratePDF"/>
+            </StackPanel>
+            <UniformGrid Columns="2">
+                <editableViews:BasicInfoView DataContext="{Binding ElementName=Window, Path=Worker.Info, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="2"/>
+                <GroupBox Header="Должности">
+                    <local:EditableList ItemsSource="{Binding ElementName=Window, Path=Worker.TargetPositions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </GroupBox>
+                <GroupBox Header="Опыт работы">
+                    <local:EditableList ItemsSource="{Binding ElementName=Window, Path=Worker.Experiences, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </GroupBox>
+                <GroupBox Header="Навыки">
+                    <local:EditableList ItemsSource="{Binding ElementName=Window, Path=Worker.Skills, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </GroupBox>
+                <GroupBox Header="Образование">
+                    <local:EditableList ItemsSource="{Binding ElementName=Window, Path=Worker.HighSchools, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </GroupBox>
+            </UniformGrid>
+        </StackPanel>
+    </ScrollViewer>
 </Window>

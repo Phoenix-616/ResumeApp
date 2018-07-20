@@ -13,6 +13,11 @@ namespace Resume.Models
     {
         public Person()
         {
+            Info = new BasicInfo();
+            HighSchools = new ObservableCollection<Education>();
+            Skills = new ObservableCollection<Skill>();
+            TargetPositions = new ObservableCollection<TargetPosition>();
+            Experiences = new ObservableCollection<Experience>();
         }
 
         public Person(BasicInfo info, List<Education> highSchools,
@@ -32,5 +37,14 @@ namespace Resume.Models
         public ObservableCollection<TargetPosition> TargetPositions { get; set; }
         public ObservableCollection<Experience> Experiences { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public void Reload(Person obj)
+        {
+            Info = obj.Info;
+            HighSchools = obj.HighSchools;
+            Skills = obj.Skills;
+            TargetPositions = obj.TargetPositions;
+            Experiences = obj.Experiences;
+        }
     }
 }

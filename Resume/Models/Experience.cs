@@ -14,21 +14,21 @@ namespace Resume.Models
         {
         }
 
-        public Experience(string firm, DateTime since, DateTime until, string position, List<string> duties, string extra)
+        public Experience(string firm, DateTime since, DateTime until, string position, string duties, string extra)
         {
             Firm = firm;
             Since = since;
             Until = until;
             Position = position;
-            Duties = new ObservableCollection<string>(duties);
+            Duties = duties;
             Extra = extra;
         }
 
         public string Firm { get; set; }
-        public DateTime Since { get; set; }
-        public DateTime Until { get; set; }
+        public DateTime Since { get; set; } = DateTime.Now;
+        public DateTime Until { get; set; } = DateTime.Now;
         public string Position { get; set; }
-        public ObservableCollection<string> Duties { get; set; }
+        public string Duties { get; set; }
         public string Extra { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
     }

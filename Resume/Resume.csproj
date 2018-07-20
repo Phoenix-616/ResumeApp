@@ -36,9 +36,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="itextsharp, Version=5.5.13.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
-      <HintPath>..\packages\iTextSharp.5.5.13\lib\itextsharp.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -65,6 +62,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="EditableList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="EditableViews\BasicInfoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -81,7 +82,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EditableViews\TargetPostionViewElement.xaml">
+    <Page Include="EditableViews\TargetPositionViewElement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -92,6 +93,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EditableList.xaml.cs">
+      <DependentUpon>EditableList.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditableViews\BasicInfoView.xaml.cs">
       <DependentUpon>BasicInfoView.xaml</DependentUpon>
@@ -105,8 +109,8 @@
     <Compile Include="EditableViews\SkillViewElement.xaml.cs">
       <DependentUpon>SkillViewElement.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EditableViews\TargetPostionViewElement.xaml.cs">
-      <DependentUpon>TargetPostionViewElement.xaml</DependentUpon>
+    <Compile Include="EditableViews\TargetPositionViewElement.xaml.cs">
+      <DependentUpon>TargetPositionViewElement.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

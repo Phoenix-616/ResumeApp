@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Resume.Models
 {
-    public class Skill : INotifyPropertyChanged
+    public class Skill : INotifyPropertyChanged, IDisposable
     {
         public Skill() { }
 
@@ -20,5 +20,10 @@ namespace Resume.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
+        public void Dispose()
+        {
+            Name = null;
+            Description = null;
+        }
     }
 }
