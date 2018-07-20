@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Resume.Models
 {
     public enum AcDegree { None, Bachelor, Master, PhD, Doctor }
-    public class Education : INotifyPropertyChanged, IDisposable
+    public class Education : INotifyPropertyChanged
     {
         public Education() { }
 
@@ -25,11 +25,5 @@ namespace Resume.Models
         public bool Done { get; set; }
         public AcDegree Degree { get; set; } = AcDegree.None;
         public event PropertyChangedEventHandler PropertyChanged;
-        public void Dispose()
-        {
-            UniName = null;
-            Department = null;
-            Degree = AcDegree.None;
-        }
     }
 }

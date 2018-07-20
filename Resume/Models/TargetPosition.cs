@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Resume.Models
 {
-    public class TargetPosition : INotifyPropertyChanged, IDisposable
+    public class TargetPosition : INotifyPropertyChanged
     {
 
         public TargetPosition()
@@ -24,10 +24,5 @@ namespace Resume.Models
         public string Position { get; set; }
         public string Reasons { get; set; }
         public event PropertyChangedEventHandler PropertyChanged;
-        public void Dispose()
-        {
-            Position = null;
-            Reasons = null;
-        }
     }
 }

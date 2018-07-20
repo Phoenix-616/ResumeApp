@@ -1,0 +1,63 @@
+﻿<Window x:Class="Resume.FinalView.FinalView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Resume.FinalView"
+        xmlns:finalViewControls="clr-namespace:Resume.FinalView.FinalViewControls"
+        xmlns:models="clr-namespace:Resume.Models"
+        mc:Ignorable="d"
+        x:Name="Window"
+        Title="Итоговое представление" 
+        Height="20 cm" Width="22 cm">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="FinalViewControls/CommonStyles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <DataTemplate DataType="{x:Type models:TargetPosition}">
+                <finalViewControls:FinalTargetPositionView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type models:Skill}">
+                <finalViewControls:FinalSkillView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type models:Education}">
+                <finalViewControls:FinalEducationView/>
+            </DataTemplate>
+            <DataTemplate DataType="{x:Type models:Experience}">
+                <finalViewControls:FinalExperienceView/>
+            </DataTemplate>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto" Background="DarkGray">
+        <Grid Width="21 cm" Height="29.7 cm" Background="White" Margin="20">
+            <Grid Margin="1cm">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <finalViewControls:FinalBasicInfoView Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+                                              DataContext="{Binding ElementName=Window, Path=Worker.Info, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <StackPanel Grid.Row="1" Grid.Column="0">
+                    <ItemsControl ItemsSource="{Binding ElementName=Window, Path=Worker.TargetPositions, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <TextBlock Text="Опыт" Style="{StaticResource PrimaryInfo}"/>
+                    <ItemsControl ItemsSource="{Binding ElementName=Window, Path=Worker.Experiences, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.Column="1">
+                    <TextBlock Text="Навыки" Style="{StaticResource PrimaryInfo}"/>
+                    <ItemsControl ItemsSource="{Binding ElementName=Window, Path=Worker.Skills, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                    <Grid Style="{StaticResource LineStyle}"/>
+                    <TextBlock Text="Образование" Style="{StaticResource PrimaryInfo}"/>
+                    <ItemsControl ItemsSource="{Binding ElementName=Window, Path=Worker.HighSchools, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
+</Window>

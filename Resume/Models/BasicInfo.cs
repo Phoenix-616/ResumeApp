@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Resume.Models
 {
-    public class BasicInfo : INotifyPropertyChanged, IDisposable
+    public class BasicInfo : INotifyPropertyChanged
     {
         public BasicInfo() { }
-        public BasicInfo(string firstName, string middleName, string lastName, bool male, DateTime birthDay, string phone, string email)
+        public BasicInfo(string firstName, string middleName, string lastName, DateTime birthDay, string phone, string email)
         {
             FirstName = firstName;
             MiddleName = middleName;
@@ -24,20 +24,10 @@ namespace Resume.Models
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
-        public bool Male { get; set; }
         public DateTime BirthDay { get; set; } = DateTime.Now;
         public string Phone { get; set; }
         public string Email { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
-        public void Dispose()
-        {
-            FirstName = null;
-            MiddleName = null;
-            LastName = null;
-            BirthDay = DateTime.Now;
-            Phone = null;
-            Email = null;
-        }
     }
 }

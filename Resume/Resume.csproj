@@ -86,6 +86,38 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="FinalView\FinalView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FinalView\FinalViewControls\CommonStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FinalView\FinalViewControls\FinalBasicInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FinalView\FinalViewControls\FinalEducationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FinalView\FinalViewControls\FinalExperienceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FinalView\FinalViewControls\FinalSkillView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FinalView\FinalViewControls\FinalTargetPositionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FinalView\FinalViewControls\Pairs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -111,6 +143,29 @@
     </Compile>
     <Compile Include="EditableViews\TargetPositionViewElement.xaml.cs">
       <DependentUpon>TargetPositionViewElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FinalView\FinalView.xaml.cs">
+      <DependentUpon>FinalView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FinalView\FinalViewControls\Converter\CompleteConverter.cs" />
+    <Compile Include="FinalView\FinalViewControls\Converter\DecorateString.cs" />
+    <Compile Include="FinalView\FinalViewControls\FinalBasicInfoView.xaml.cs">
+      <DependentUpon>FinalBasicInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FinalView\FinalViewControls\FinalEducationView.xaml.cs">
+      <DependentUpon>FinalEducationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FinalView\FinalViewControls\FinalExperienceView.xaml.cs">
+      <DependentUpon>FinalExperienceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FinalView\FinalViewControls\FinalSkillView.xaml.cs">
+      <DependentUpon>FinalSkillView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FinalView\FinalViewControls\FinalTargetPositionView.xaml.cs">
+      <DependentUpon>FinalTargetPositionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FinalView\FinalViewControls\Pairs.xaml.cs">
+      <DependentUpon>Pairs.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

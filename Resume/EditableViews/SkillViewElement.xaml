@@ -6,9 +6,6 @@
              xmlns:local="clr-namespace:Resume.EditableViews"
              mc:Ignorable="d">
     <StackPanel>
-        <TextBlock Text="Навык:"/>
-        <TextBox Text="{Binding Path=Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBlock Text="Описание:"/>
         <TextBox Text="{Binding Path=Description, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" AcceptsReturn="True"/>
     </StackPanel>
 </UserControl>

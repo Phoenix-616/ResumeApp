@@ -64,7 +64,7 @@ namespace Resume
 
         private void GeneratePDF(object sender, RoutedEventArgs e)
         {
-            var saveDialog = new SaveFileDialog
+            /*var saveDialog = new SaveFileDialog
             {
                 Filter = "PDF файл|*.pdf",
                 Title = "Экспортировать резюме в PDF"
@@ -72,7 +72,8 @@ namespace Resume
             saveDialog.ShowDialog();
             if (saveDialog.FileName != "")
             {
-            }
+            }*/
+            new FinalView.FinalView(Worker).Show();
         }
     }
 }
