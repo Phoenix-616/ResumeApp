@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Resume.Models
 {
-    public class BasicInfo
+    public class BasicInfo : INotifyPropertyChanged
     {
         public BasicInfo() { }
         public BasicInfo(string firstName, string middleName, string lastName, bool male, DateTime birthDay, string phone, string email)
@@ -28,5 +29,6 @@ namespace Resume.Models
         public string Phone { get; set; }
         public string Email { get; set; }
 
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

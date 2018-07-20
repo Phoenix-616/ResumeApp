@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 namespace Resume.Models
 {
     public enum AcDegree { None, Bachelor, Master, PhD, Doctor }
-    public class Education
+    public class Education : INotifyPropertyChanged
     {
         public Education() { }
 
@@ -23,5 +24,6 @@ namespace Resume.Models
         public string Department { get; set; }
         public bool Done { get; set; }
         public AcDegree Degree { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

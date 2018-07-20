@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Resume.Models
 {
-    public class Experience
+    public class Experience : INotifyPropertyChanged
     {
         public Experience()
         {
@@ -18,7 +20,7 @@ namespace Resume.Models
             Since = since;
             Until = until;
             Position = position;
-            Duties = duties;
+            Duties = new ObservableCollection<string>(duties);
             Extra = extra;
         }
 
@@ -26,7 +28,8 @@ namespace Resume.Models
         public DateTime Since { get; set; }
         public DateTime Until { get; set; }
         public string Position { get; set; }
-        public List<string> Duties { get; set; }
+        public ObservableCollection<string> Duties { get; set; }
         public string Extra { get; set; }
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }

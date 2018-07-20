@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="Resume.EditableViews.ExperienceViewElement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Resume.EditableViews"
+             mc:Ignorable="d">
+    <StackPanel>
+        <TextBlock Text="Компания:"/>
+        <TextBox Text="{Binding Path=Firm, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="С:"/>
+        <DatePicker Text="{Binding Path=Since, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="По:"/>
+        <DatePicker Text="{Binding Path=Until, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="Должность:"/>
+        <TextBox Text="{Binding Path=Position, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBlock Text="Обязанности:"/>
+        <DataGrid ItemsSource="{Binding Path=Duties, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" CanUserAddRows="True" CanUserDeleteRows="True" HeadersVisibility="None"/>
+        <TextBlock Text="Дополнительная информация:"/>
+        <TextBox Text="{Binding Path=Extra, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+    </StackPanel>
+</UserControl>
