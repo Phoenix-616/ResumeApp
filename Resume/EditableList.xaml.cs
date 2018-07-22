@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -57,6 +58,29 @@ namespace Resume
                 {
                     addMethod?.Invoke(ItemsSource, new[] { Activator.CreateInstance(type) });
                 }
+            }
+        }
+
+        private void UpButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button)
+            {
+                var indexOfMethod = ItemsSource.GetType().GetMethod("IndexOf");
+                int? tmp = indexOfMethod?.Invoke(ItemsSource, new[] { button.DataContext }) as int?;
+                var moveMethod = ItemsSource.GetType().GetMethod("Move");
+                if (tmp != null && tmp > 0) moveMethod?.Invoke(ItemsSource, new object[] { tmp, tmp - 1 });
+            }
+        }
+
+        private void DownButtonClick(object sender, RoutedEventArgs e)
+        {
+            if (sender is Button button)
+            {
+                var indexOfMethod = ItemsSource.GetType().GetMethod("IndexOf");
+                int? tmp = indexOfMethod?.Invoke(ItemsSource, new[] { button.DataContext }) as int?;
+                var prop = ItemsSource.GetType().GetProperty("Count", BindingFlags.Public | BindingFlags.Instance);
+                var moveMethod = ItemsSource.GetType().GetMethod("Move");
+                if (tmp != null && prop != null && tmp < (int)prop.GetValue(ItemsSource) - 1) moveMethod?.Invoke(ItemsSource, new object[] { tmp, tmp + 1 });
             }
         }
     }

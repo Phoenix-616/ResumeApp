@@ -20,7 +20,13 @@
     <StackPanel Margin="0,0,0,20">
         <TextBlock Text="{Binding Path=UniName, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SubPrimaryInfo}"/>
         <TextBlock Text="{Binding Path=Department, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SecondaryInfo}"/>
-        <TextBlock Text="{Binding Path=Degree, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CompleteConverter}}" Style="{StaticResource SecondaryInfo}"/>
-        <TextBlock Text="{Binding Path=Done, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CompleteConverter}}" Style="{StaticResource SecondaryInfo}"/>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Ступень:" Style="{StaticResource OtherInfo}"/>
+            <TextBlock Text="{Binding Path=Degree, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CompleteConverter}}" 
+                       Style="{StaticResource SecondaryInfo}"/>
+            <TextBlock Text="Состояние:" Style="{StaticResource OtherInfo}"/>
+            <TextBlock Text="{Binding Path=Done, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource CompleteConverter}}" 
+                       Style="{StaticResource SecondaryInfo}"/>
+        </StackPanel>
     </StackPanel>
 </UserControl>

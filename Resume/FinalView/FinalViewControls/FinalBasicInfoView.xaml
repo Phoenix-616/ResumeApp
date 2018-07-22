@@ -24,6 +24,5 @@
         <local:Pairs Title="Дата рождения:" Value="{Binding Path=BirthDay, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, StringFormat=dd.MM.yyyy}"/>
         <local:Pairs Title="Телефон:" Value="{Binding Path=Phone, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
         <local:Pairs Title="E-mail:" Value="{Binding Path=Email, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-        <Grid Style="{StaticResource LineStyle}"/>
     </StackPanel>
 </UserControl>

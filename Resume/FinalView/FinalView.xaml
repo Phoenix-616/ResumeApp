@@ -31,33 +31,44 @@
         </ResourceDictionary>
     </Window.Resources>
 
-    <ScrollViewer VerticalScrollBarVisibility="Auto" Background="DarkGray">
-        <Grid Width="21 cm" Height="29.7 cm" Background="White" Margin="20">
-            <Grid Margin="1cm">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <finalViewControls:FinalBasicInfoView Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
-                                              DataContext="{Binding ElementName=Window, Path=Worker.Info, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                <StackPanel Grid.Row="1" Grid.Column="0">
-                    <ItemsControl ItemsSource="{Binding ElementName=Window, Path=Worker.TargetPositions, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                    <TextBlock Text="Опыт" Style="{StaticResource PrimaryInfo}"/>
-                    <ItemsControl ItemsSource="{Binding ElementName=Window, Path=Worker.Experiences, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-
-                </StackPanel>
-                <StackPanel Grid.Row="1" Grid.Column="1">
-                    <TextBlock Text="Навыки" Style="{StaticResource PrimaryInfo}"/>
-                    <ItemsControl ItemsSource="{Binding ElementName=Window, Path=Worker.Skills, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                    <Grid Style="{StaticResource LineStyle}"/>
-                    <TextBlock Text="Образование" Style="{StaticResource PrimaryInfo}"/>
-                    <ItemsControl ItemsSource="{Binding ElementName=Window, Path=Worker.HighSchools, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                </StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Content="Создать PDF" Click="GeneratePDF"/>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Background="DarkGray">
+            <Grid x:Name="Final" Width="21 cm" Height="29.7 cm" Background="White" Margin="20">
+                <Grid Margin="1cm">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <StackPanel>
+                        <finalViewControls:FinalBasicInfoView DataContext="{Binding ElementName=Window, Path=Worker.Info, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Grid Style="{StaticResource LineStyle}"/>
+                    </StackPanel>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <ItemsControl ItemsSource="{Binding ElementName=Window, Path=Worker.TargetPositions, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Grid Style="{StaticResource LineStyle}"/>
+                            <TextBlock Text="Опыт" Style="{StaticResource PrimaryInfo}"/>
+                            <ItemsControl ItemsSource="{Binding ElementName=Window, Path=Worker.Experiences, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <TextBlock Text="Навыки" Style="{StaticResource PrimaryInfo}"/>
+                            <ItemsControl ItemsSource="{Binding ElementName=Window, Path=Worker.Skills, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Grid Style="{StaticResource LineStyle}"/>
+                            <TextBlock Text="Образование" Style="{StaticResource PrimaryInfo}"/>
+                            <ItemsControl ItemsSource="{Binding ElementName=Window, Path=Worker.HighSchools, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
             </Grid>
-        </Grid>
-    </ScrollViewer>
+        </ScrollViewer>
+    </Grid>
 </Window>

@@ -8,7 +8,7 @@
         xmlns:local="clr-namespace:Resume"
         mc:Ignorable="d"
         x:Name="Window"
-        Title="ResumeApp">
+        Title="ResumeApp" Width="300">
 
     <Window.Resources>
         <Style TargetType="GroupBox">
@@ -29,16 +29,32 @@
             <Setter Property="Margin" Value="5"/>
             <Setter Property="MinWidth" Value="20"/>
         </Style>
+        <DataTemplate DataType="{x:Type models:Education}">
+            <editableViews:EducationViewElement/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type models:Skill}">
+            <editableViews:SkillViewElement/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type models:Experience}">
+            <editableViews:ExperienceViewElement/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type models:TargetPosition}">
+            <editableViews:TargetPositionViewElement/>
+        </DataTemplate>
     </Window.Resources>
 
-    <ScrollViewer>
-        <StackPanel CanVerticallyScroll="True" Orientation="Vertical">
-            <StackPanel Orientation="Horizontal">
-                <Button Content="Загрузить" Click="LoadButtonClick"/>
-                <Button Content="Сохранить" Click="SaveButtonClick"/>
-                <Button Content="Сгенерировать PDF" Click="GeneratePDF"/>
-            </StackPanel>
-            <UniformGrid Columns="2">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <Button Content="Загрузить" Click="LoadButtonClick"/>
+            <Button Content="Сохранить" Click="SaveButtonClick"/>
+            <Button Content="Предпросмотр" Click="OpenPreview"/>
+        </StackPanel>
+        <ScrollViewer Grid.Row="1">
+            <StackPanel>
                 <editableViews:BasicInfoView DataContext="{Binding ElementName=Window, Path=Worker.Info, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="2"/>
                 <GroupBox Header="Должности">
                     <local:EditableList ItemsSource="{Binding ElementName=Window, Path=Worker.TargetPositions, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
@@ -52,7 +68,7 @@
                 <GroupBox Header="Образование">
                     <local:EditableList ItemsSource="{Binding ElementName=Window, Path=Worker.HighSchools, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                 </GroupBox>
-            </UniformGrid>
-        </StackPanel>
-    </ScrollViewer>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
 </Window>

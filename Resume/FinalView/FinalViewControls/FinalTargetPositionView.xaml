@@ -23,6 +23,5 @@
         <TextBlock Text="Интересы:" Style="{StaticResource SecondaryInfo}"/>
         <TextBlock Text="{Binding Path=Reasons, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource StringDecorator}}" 
                    Style="{StaticResource SecondaryInfo}" TextWrapping="Wrap"/>
-        <Grid Style="{StaticResource LineStyle}"/>
     </StackPanel>
 </UserControl>

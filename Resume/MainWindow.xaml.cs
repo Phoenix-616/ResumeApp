@@ -62,17 +62,8 @@ namespace Resume
             }
         }
 
-        private void GeneratePDF(object sender, RoutedEventArgs e)
+        private void OpenPreview(object sender, RoutedEventArgs e)
         {
-            /*var saveDialog = new SaveFileDialog
-            {
-                Filter = "PDF файл|*.pdf",
-                Title = "Экспортировать резюме в PDF"
-            };
-            saveDialog.ShowDialog();
-            if (saveDialog.FileName != "")
-            {
-            }*/
             new FinalView.FinalView(Worker).Show();
         }
     }

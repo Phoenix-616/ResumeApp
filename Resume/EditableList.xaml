@@ -11,53 +11,26 @@
              x:Name="Control"
              d:DesignHeight="450" d:DesignWidth="800">
 
-    <UserControl.Resources>
-        <ResourceDictionary>
-            <DataTemplate DataType="{x:Type models:Education}">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
-                    <editableViews:EducationViewElement/>
-                    <Button Grid.Column="1" Content="-" Click="DelButtonClick"/>
-                </Grid>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type models:Skill}">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
-                    <editableViews:SkillViewElement/>
-                    <Button Grid.Column="1" Content="-" Click="DelButtonClick"/>
-                </Grid>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type models:Experience}">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
-                    <editableViews:ExperienceViewElement/>
-                    <Button Grid.Column="1" Content="-" Click="DelButtonClick"/>
-                </Grid>
-            </DataTemplate>
-            <DataTemplate DataType="{x:Type models:TargetPosition}">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
-                    <editableViews:TargetPositionViewElement/>
-                    <Button Grid.Column="1" Content="-" Click="DelButtonClick"/>
-                </Grid>
-            </DataTemplate>
-        </ResourceDictionary>
-    </UserControl.Resources>
-
     <StackPanel>
-        <ItemsControl x:Name="ItemsList" ItemsSource="{Binding ElementName=Control, Path=ItemsSource}" HorizontalContentAlignment="Stretch"/>
+        <ItemsControl x:Name="ItemsList" ItemsSource="{Binding ElementName=Control, Path=ItemsSource}" HorizontalContentAlignment="Stretch">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <ContentControl Content="{Binding}"/>
+                        <UniformGrid Grid.Column="1" Columns="1">
+                            <Button Content="▲" Width="20" MinHeight="20" Click="UpButtonClick"/>
+                            <Button Content="▼" Width="20" MinHeight="20" Click="DownButtonClick"/>
+                        </UniformGrid>
+                        <Button Grid.Column="2" Content="-" Width="20" Click="DelButtonClick"/>
+                    </Grid> 
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
         <Button Content="Add" Click="AddButtonClick"/>
     </StackPanel>
 </UserControl>

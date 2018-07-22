@@ -22,10 +22,10 @@
         <TextBlock Text="{Binding Path=Firm, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SecondaryInfo}"/>
         <local:Pairs Title="С:" Value="{Binding Path=Since, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, StringFormat=dd.MM.yyyy}"/>
         <local:Pairs Title="По:" Value="{Binding Path=Until, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, StringFormat=dd.MM.yyyy}"/>
-        <TextBlock Text="Обязанности:" Style="{StaticResource SecondaryInfo}"/>
+        <TextBlock Text="Обязанности:" Style="{StaticResource OtherInfo}"/>
         <TextBlock Text="{Binding Path=Duties, Mode=OneWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource DecorateString}}" 
-                   Style="{StaticResource OtherInfo}"/>
-        <TextBlock Text="Дополнительная информация" Style="{StaticResource OtherInfo}"/>
+                   Style="{StaticResource SecondaryInfo}"/>
+        <TextBlock Text="Дополнительная информация:" Style="{StaticResource OtherInfo}"/>
         <TextBlock Text="{Binding Path=Extra, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource SecondaryInfo}"/>
     </StackPanel>
 </UserControl>
