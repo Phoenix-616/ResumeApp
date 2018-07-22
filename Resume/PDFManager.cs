@@ -20,6 +20,7 @@ namespace Resume
                 PdfWriter.GetInstance(doc, fs);
                 doc.Open();
                 iTextSharp.text.Image pic = iTextSharp.text.Image.GetInstance(image, System.Drawing.Imaging.ImageFormat.Png);
+                pic.ScaleAbsolute(PageSize.A4);
                 doc.Add(pic);
                 doc.Close();
             }

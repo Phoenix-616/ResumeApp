@@ -38,7 +38,7 @@
         </Grid.RowDefinitions>
         <Button Content="Создать PDF" Click="GeneratePDF"/>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Background="DarkGray">
-            <Grid x:Name="Final" Width="21 cm" Height="29.7 cm" Background="White" Margin="20">
+            <Grid x:Name="Final" Width="21 cm" Height="29.7 cm" Background="White">
                 <Grid Margin="1cm">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>

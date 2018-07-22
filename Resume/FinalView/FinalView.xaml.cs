@@ -34,19 +34,6 @@ namespace Resume.FinalView
         private void GeneratePDF(object sender, RoutedEventArgs e)
         {
             //Вот поэтому я и иду на стажера :)
-            var mul = 1;
-            var h = (int) (Final.Height * mul);
-            var w = (int) (Final.Width * mul);
-            var bitmap = new RenderTargetBitmap(w, h, 96 * mul, 96 * mul, PixelFormats.Pbgra32);
-            bitmap.Render(Final);
-            PngBitmapEncoder image = new PngBitmapEncoder();
-            image.Frames.Add(BitmapFrame.Create(bitmap));
-            System.Drawing.Image imgOut;
-            using (var fs = new MemoryStream())
-            {
-                image.Save(fs);
-                imgOut = System.Drawing.Image.FromStream(fs);
-            }
             var saveDialog = new SaveFileDialog
             {
                 Filter = "PDF файл|*.pdf",
@@ -55,8 +42,21 @@ namespace Resume.FinalView
             saveDialog.ShowDialog();
             if (saveDialog.FileName != "")
             {
+                var mul = 5;
+                var h = (int)(Final.Height * mul);
+                var w = (int)(Final.Width * mul);
+                var bitmap = new RenderTargetBitmap(w, h, 96 * mul, 96 * mul, PixelFormats.Pbgra32);
+                bitmap.Render(Final);
+                PngBitmapEncoder image = new PngBitmapEncoder();
+                image.Frames.Add(BitmapFrame.Create(bitmap));
+                System.Drawing.Image imgOut;
+                using (var fs = new MemoryStream())
+                {
+                    image.Save(fs);
+                    imgOut = System.Drawing.Image.FromStream(fs);
+                }
                 PDFManager.SaveImg2PDF(imgOut, saveDialog.FileName);
-                
+
             }
         }
     }
